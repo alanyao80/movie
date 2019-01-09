@@ -9,7 +9,7 @@ db, cur = db_connect()
 
 #################### start ######################
 
-cur.execute('select m.id,m.title,m.star,s.url as disk_url from movie m left join source s on (m.id = s.movie_id) where m.id=31')
+cur.execute('select m.id,m.title,m.star,s.url as disk_url from movie m left join source s on (m.id = s.movie_id) where m.id=89')
 rows = cur.fetchall()
 
 for row in rows:

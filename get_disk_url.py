@@ -75,14 +75,18 @@ def get_souce(id, movie_id):
 #################### start ######################
 #cur.execute('select * from movie order by id DESC')
 # 指定id
-cur.execute('select * from movie where id=37')
+#cur.execute('select * from movie order by id desc limit 1')
+cur.execute('select * from movie where id = 89 ')
 rows = cur.fetchall()
 
 for row in rows:
 
     movie_id = row['id']
+    print("start id ",movie_id)
 
-    response = common.set_url("http://www.panduoduo.net/s/name/" + row['title'], headers=common.header)
+    #url = "http://www.panduoduo.net/s/comb/n-"+row['title']+"&f-f4" #会被屏
+    url = "http://www.panduoduo.net/s/name/"+row['title']
+    response = common.set_url(url, headers=common.header)
     doc_ob = get_list(response.text)
     count = 0
     for item in doc_ob.items():  # 使用items()可以保留结果的pyjuery对象

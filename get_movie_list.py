@@ -42,7 +42,6 @@ params = {
     "start": start
 }
 
-# 指定header
 response = common.set_url("https://movie.douban.com/top250", headers=common.header, params=params)
 doc_ob = get_list(response.text)
 
